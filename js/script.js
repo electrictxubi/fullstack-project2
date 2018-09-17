@@ -113,10 +113,18 @@ page.addEventListener('click', (e) => {
     }
 });
 
-input.addEventListener('keyup', (e) => {
+input.addEventListener('keyup', () => {
     search(studentListMaster, input.value);
-    paginationCreation(studentList, e.target.textContent);
+    paginationCreation(studentList, 1);
 
 });
 
+input.addEventListener('click', () => {
+    input.placeholder = '';
+});
+
+input.nextElementSibling.addEventListener('click', () => {
+    search(studentListMaster, input.value);
+    paginationCreation(studentList, 1);
+});
 
